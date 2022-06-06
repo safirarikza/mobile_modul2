@@ -1,10 +1,7 @@
-import 'dart:html';
-
 import 'package:flutter/material.dart';
+import 'package:kegiatan1_2/halaman_satu.dart';
 
-Future<void> main() async {
-  runApp(const MyApp());
-}
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -12,10 +9,16 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(home: PageOne());
+    return MaterialApp(
+        title: 'GoPay',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+        ),
+        home: const HalamanSatu());
   }
 }
 
+/* 
 class PageOne extends StatefulWidget {
   const PageOne({Key? key}) : super(key: key);
 
@@ -38,13 +41,16 @@ class _PageOneState extends State<PageOne> {
             ElevatedButton(
               onPressed: () async {
                 final result = await Navigator.of(context).push(
-                  MaterialPageRoute(builder: (_) => PageTwo()),
+                  MaterialPageRoute(builder: (_) => const PageTwo()),
                 );
 
-                if(result != null)
-                setState(() { _string = result!;});
+                if (result != null) {
+                  setState(() {
+                    _string = result!;
+                  });
+                }
               },
-              child: Text("to PageTwo"),
+              child: const Text("to PageTwo"),
             ),
           ],
         ),
@@ -54,7 +60,7 @@ class _PageOneState extends State<PageOne> {
 }
 
 class PageTwo extends StatelessWidget {
-  const PageTwo({ Key? key }) : super(key: key);
+  const PageTwo({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -67,14 +73,14 @@ class PageTwo extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context, "Hallo");
               },
-              child: Text("Kembali dan Ubah text"),
-              ),
+              child: const Text("Kembali dan Ubah text"),
+            ),
             ElevatedButton(
               onPressed: () {
                 Navigator.pop(context);
               },
-              child: Text("Kembali"),
-              ),
+              child: const Text("Kembali"),
+            ),
           ],
         ),
       ),
@@ -87,12 +93,10 @@ class CostumeTextField extends StatelessWidget {
   const CostumeTextField({Key? key, required this.onChanged}) : super(key: key);
 
   @override
-  Widget build(BuildContext Context) {
+  Widget build(BuildContext context) {
     return SizedBox(
-      width: 200,
-      child: TextFormField( 
-      onChanged: (value) => onChanged(value))
-    
-    );
+        width: 200,
+        child: TextFormField(onChanged: (value) => onChanged(value)));
   }
 }
+ */
